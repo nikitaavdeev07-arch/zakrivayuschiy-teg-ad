@@ -38,6 +38,7 @@ input {
 }
 
 ul,
+li,
 ol {
   list-style: none;
 }

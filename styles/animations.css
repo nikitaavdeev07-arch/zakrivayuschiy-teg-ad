@@ -1,6 +1,8 @@
 /* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
 
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
@@ -8,4 +10,99 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+.like-icon .contour,
+.like-icon .main-body,
+.like-icon .core {
+  transition: fill 0.3s ease;
+}
+
+.like-icon .contour {
+  transition-delay: 0.06s;
+}
+
+.like-icon .main-body {
+  transition-delay: 0.05s;
+}
+
+.card__icon-button:active .like-icon .core {
+  fill: var(--themes-accent-color);
+}
+
+.card__icon-button:active .like-icon .main-body {
+  fill: var(--themes-accent-color);
+}
+
+.card__icon-button:hover .like-icon:not(.is-liked) .main-body {
+  fill: var(--themes-main-color);
+}
+
+.card__icon-button:hover .like-icon:not(.is-liked) .core {
+  fill: var(--themes-main-color);
+}
+
+.like-icon .heart {
+  transform-origin: center;
+}
+
+.like-icon.is-liked .heart {
+  animation: heartScale 0.3s ease-in 0.1s alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s alternate;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--themes-accent-color);
+  transition-timing-function: linear;
+  transition-delay: 0;
+  transition-duration: 0.3s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--themes-accent-color);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--themes-accent-color);
+}
+
+@keyframes strelka {
+  0% {
+    transform: translate(-4px);
+  }
+
+  100% {
+    transform: translate(0px);
+  }
+}
+
+@keyframes heartScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes sparks {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes border {
+  0% {
+    border-bottom: none;
+  }
+  100% {
+    border-bottom: 2px solid var(--themes-main-color);
+  }
+}
