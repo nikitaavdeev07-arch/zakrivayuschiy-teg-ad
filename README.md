@@ -1,1 +1,1 @@
-https://github.com/nikitaavdeev07-arch/slozhno-sosredotochitsya-ad
+https://github.com/nikitaavdeev07-arch/zakrivayuschiy-teg-ad
